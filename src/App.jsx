@@ -1,7 +1,12 @@
+import Navbar from "./components/layouts/navbar/Navbar";
+import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
+
 function App() {
+  const saludo = "Hola!";
   return (
     <div>
-      <h1>App</h1>
+      <Navbar />
+      <ItemListContainer greeting={saludo} />
     </div>
   );
 }
