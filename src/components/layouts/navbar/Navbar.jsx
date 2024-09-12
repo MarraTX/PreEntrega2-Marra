@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { CartWidgets } from "../../common/cartWidget/CartWidgets";
 import "./navbar.css";
+import Button from "@mui/material/Button";
 
 const Navbar = () => {
   return (
