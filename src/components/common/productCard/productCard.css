@@ -1,0 +1,17 @@
+.card-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.card-box:hover {
+  transform: scale(1.05);
+}

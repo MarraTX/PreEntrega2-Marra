@@ -1,13 +1,12 @@
-import { Navbar } from "./components/navbar/Navbar";
-import { Main } from "./components/main/Main";
-import { Footer } from "./components/footer/Footer";
+import Navbar from "./components/layouts/navbar/Navbar";
+import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
 
 function App() {
+  const saludo = "Hola!";
   return (
     <div>
       <Navbar />
-      <Main />
-      <Footer />
+      <ItemListContainer greeting={saludo} />
     </div>
   );
 }
