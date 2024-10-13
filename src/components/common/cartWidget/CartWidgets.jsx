@@ -4,7 +4,7 @@ import Badge from "@mui/material/Badge";
 export const CartWidgets = () => {
   return (
     <div>
-      <Badge badgeContent={3} color="warning">
+      <Badge badgeContent={10} color="warning" max={9} showZero={true}>
         <ShoppingCartOutlinedIcon
           style={{ color: "#FFF", display: "flex", alignItems: "center" }}
         />

@@ -1,17 +1,31 @@
-import ProductCard from "../../common/productCard/ProductCard";
-import "./itemListContainer.css";
+import { useEffect } from "react";
+import { products } from "../../../productsMock";
+import { useState } from "react";
+import ItemList from "./itemList";
+
 const ItemListContainer = ({ greeting }) => {
-  return (
-    <div className="container-prod">
-      <h1>Listado de productos</h1>
-      <div className="container-card">
-        <ProductCard nombre="Fango" precio={"$" + 3000} />
-        <ProductCard nombre="Bruma" precio={"$" + 2000} />
-        <ProductCard nombre="Sales" precio={"$" + 1000} />
-      </div>
-      <h4>{greeting}</h4>
-    </div>
-  );
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const getProducts = new Promise((resolve, reject) => {
+      let isLogged = true;
+      if (isLogged) {
+        resolve(products);
+      } else {
+        reject({ error: "Hubo un error" });
+      }
+    });
+
+    getProducts
+      .then((response) => {
+        console.log("se entra en el then", response);
+        setItems(response);
+      })
+      .catch((error) => {
+        console.log("se entra en el catch", error);
+      });
+  }, []);
+
+  return <ItemList items={items} />;
 };
 
 export default ItemListContainer;
