@@ -1,7 +1,6 @@
-import React from "react";
 import ProductCard from "../../common/productCard/ProductCard";
 
-const itemList = ({ items }) => {
+const ItemList = ({ items }) => {
   return (
     <div
       style={{
@@ -9,22 +8,15 @@ const itemList = ({ items }) => {
         justifyContent: "center",
         alignItems: "center",
         gap: "20px",
+        flexWrap: "wrap",
         marginTop: "50px",
       }}
     >
       {items.map((item) => {
-        return (
-          <ProductCard
-            key={item.id}
-            title={item.title}
-            price={item.price}
-            image={item.imageUrl}
-            description={item.description}
-          />
-        );
+        return <ProductCard key={item.id} {...item} />;
       })}
     </div>
   );
 };
 
-export default itemList;
+export default ItemList;

@@ -5,7 +5,7 @@ export const products = [
     price: "$" + 4000,
     stock: 12,
     description: "Perfecto para tu cuerpo",
-    category: "Fangoterapia",
+    category: "fangoterapia",
     imageUrl:
       "https://res.cloudinary.com/dpjbuipgk/image/upload/v1728819821/IMG-20240828-WA0014_npptjy.jpg",
   },
@@ -15,7 +15,7 @@ export const products = [
     price: "$" + 3000,
     stock: 12,
     description: "Genial para tu cara",
-    category: "Lifting",
+    category: "lifting",
     imageUrl:
       "https://res.cloudinary.com/dpjbuipgk/image/upload/v1728819826/IMG-20240828-WA0018_b45ej4.jpg",
   },
@@ -25,7 +25,7 @@ export const products = [
     price: "$" + 2000,
     stock: 12,
     description: "Perfecta para baños",
-    category: "Lifting",
+    category: "lifting",
     imageUrl:
       "https://res.cloudinary.com/dpjbuipgk/image/upload/v1728819830/IMG-20240828-WA0019_plgq9h.jpg",
   },
@@ -35,7 +35,7 @@ export const products = [
     price: "$" + 7000,
     stock: 12,
     description: "Que mejor que un paquete",
-    category: "Lifting",
+    category: "lifting",
     imageUrl:
       "https://res.cloudinary.com/dpjbuipgk/image/upload/v1728819842/cristales_de_sulfato_qkx3di.png",
   },

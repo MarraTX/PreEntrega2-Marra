@@ -7,11 +7,13 @@ import { categories } from "./categories";
 const Navbar = () => {
   return (
     <div className="container-nav">
-      <Link to="/">Natural Chadi</Link>
+      <Link to="/">NATURAL CHADI</Link>
       {/* listado de categorias clickeables */}
       <ul>
-        {categories.map((category) => (
-          <li key={category.title}>{category.title}</li>
+        {categories.map(({ title, path }) => (
+          <Link key={title} to={path}>
+            {title}
+          </Link>
         ))}
       </ul>
       <Link to="/cart">

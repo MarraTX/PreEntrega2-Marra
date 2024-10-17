@@ -12,10 +12,14 @@ function App() {
         <Routes>
           <Route path="/" element={<ItemListContainer />}></Route>
           <Route
+            path={"/category/:categoryName"}
+            element={<ItemListContainer />}
+          />
+          <Route path="/cart" element={<CartContainer />}></Route>
+          <Route
             path="/productDetail/:id"
             element={<ItemDetailContainer />}
           ></Route>
-          <Route path="/cart" element={<CartContainer />}></Route>
           <Route
             path="*"
             element={

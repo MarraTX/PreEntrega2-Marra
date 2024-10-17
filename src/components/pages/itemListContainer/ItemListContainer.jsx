@@ -1,31 +1,46 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { products } from "../../../productsMock";
-import { useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "./itemList";
 
-const ItemListContainer = ({ greeting }) => {
-  const [items, setItems] = useState([]);
+const ItemListContainer = () => {
+  const [items, setItems] = useState([]); // undefined.title
+
+  const { categoryName } = useParams(); // {} -- { categoryName }
+  console.log(categoryName);
+
   useEffect(() => {
-    const getProducts = new Promise((resolve, reject) => {
-      let isLogged = true;
-      if (isLogged) {
-        resolve(products);
+    const filteredProducts = products.filter(
+      (product) => product.category === categoryName
+    );
+    const getProducts = new Promise((res, rej) => {
+      let isLogued = true;
+      if (isLogued) {
+        res(categoryName ? filteredProducts : products);
       } else {
-        reject({ error: "Hubo un error" });
+        rej({ message: "algo salio mal" });
       }
     });
 
     getProducts
       .then((response) => {
-        console.log("se entra en el then", response);
         setItems(response);
       })
       .catch((error) => {
-        console.log("se entra en el catch", error);
+        console.log("entro en el catch ", error);
       });
-  }, []);
+  }, [categoryName]);
 
   return <ItemList items={items} />;
 };
 
 export default ItemListContainer;
+
+// const sumar = ( a )=>{
+//   let pepe = "dsad"
+
+// }
+
+// console.log( pepe )
+
+// console.log( a )
