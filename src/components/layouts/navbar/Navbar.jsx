@@ -1,20 +1,24 @@
 import { useState } from "react";
 import { CartWidgets } from "../../common/cartWidget/CartWidgets";
 import "./navbar.css";
-import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+import { categories } from "./categories";
 
 const Navbar = () => {
   return (
     <div className="container-nav">
-      {/* nombre de la empresa */}
-      <h1>Natural Chadi</h1>
+      <Link to="/">NATURAL CHADI</Link>
       {/* listado de categorias clickeables */}
       <ul>
-        <li>Productos</li>
-        <li>Contacto</li>
-        <li>Ubicacion</li>
+        {categories.map(({ title, path }) => (
+          <Link key={title} to={path}>
+            {title}
+          </Link>
+        ))}
       </ul>
-      <CartWidgets />
+      <Link to="/cart">
+        <CartWidgets />
+      </Link>
     </div>
   );
 };

@@ -1,17 +1,46 @@
-import ProductCard from "../../common/productCard/ProductCard";
-import "./itemListContainer.css";
-const ItemListContainer = ({ greeting }) => {
-  return (
-    <div className="container-prod">
-      <h1>Listado de productos</h1>
-      <div className="container-card">
-        <ProductCard nombre="Fango" precio={"$" + 3000} />
-        <ProductCard nombre="Bruma" precio={"$" + 2000} />
-        <ProductCard nombre="Sales" precio={"$" + 1000} />
-      </div>
-      <h4>{greeting}</h4>
-    </div>
-  );
+import { useState, useEffect } from "react";
+import { products } from "../../../productsMock";
+import { useParams } from "react-router-dom";
+import ItemList from "./itemList";
+
+const ItemListContainer = () => {
+  const [items, setItems] = useState([]); // undefined.title
+
+  const { categoryName } = useParams(); // {} -- { categoryName }
+  console.log(categoryName);
+
+  useEffect(() => {
+    const filteredProducts = products.filter(
+      (product) => product.category === categoryName
+    );
+    const getProducts = new Promise((res, rej) => {
+      let isLogued = true;
+      if (isLogued) {
+        res(categoryName ? filteredProducts : products);
+      } else {
+        rej({ message: "algo salio mal" });
+      }
+    });
+
+    getProducts
+      .then((response) => {
+        setItems(response);
+      })
+      .catch((error) => {
+        console.log("entro en el catch ", error);
+      });
+  }, [categoryName]);
+
+  return <ItemList items={items} />;
 };
 
 export default ItemListContainer;
+
+// const sumar = ( a )=>{
+//   let pepe = "dsad"
+
+// }
+
+// console.log( pepe )
+
+// console.log( a )
