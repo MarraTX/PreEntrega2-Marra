@@ -1,8 +1,9 @@
 import React from "react";
 import CounterContainer from "../../common/counter/CounterContainer";
 import "./ItemDetail.css";
+import { Typography } from "@mui/material";
 
-const ItemDetail = ({ item, onAdd }) => {
+const ItemDetail = ({ item, onAdd, totalItemsAgregados }) => {
   return (
     <div className="item-detail-container">
       <div className="item-detail">
@@ -11,12 +12,34 @@ const ItemDetail = ({ item, onAdd }) => {
         <img
           src={item.imageUrl}
           alt={item.title}
-          style={{ width: "200px", height: "auto" }}
+          style={{
+            width: "250px",
+            height: "auto",
+            borderRadius: "10px",
+            border: "1px solid #424141",
+          }}
         />
-        <p>{item.description}</p>
-        <p>Precio: {item.price}</p>
-        <p>Categoría: {item.category}</p>
-        <CounterContainer onAdd={onAdd} stock={item.stock} />
+        <Typography variant="body2" fontSize={16} marginTop={2}>
+          {item.description}
+        </Typography>
+        <Typography
+          variant="h5"
+          sx={{ color: "green", marginTop: 3, fontWeight: "bold" }}
+        >
+          Precio: {item.price}
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{ color: "text.secondary", marginTop: 3, fontWeight: "bold" }}
+        >
+          Categoría: {item.category}
+        </Typography>
+        {/* <p>Ya tienes {totalItemsAgregados} unidades en el carrito.</p> */}
+        <CounterContainer
+          onAdd={onAdd}
+          stock={item.stock}
+          totalItemsAgregados={totalItemsAgregados}
+        />
       </div>
     </div>
   );
