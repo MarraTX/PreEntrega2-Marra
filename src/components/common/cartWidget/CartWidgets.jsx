@@ -3,11 +3,12 @@ import Badge from "@mui/material/Badge";
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 export const CartWidgets = () => {
-  const { cart } = useContext(CartContext);
+  const { getTotalProducts } = useContext(CartContext);
+  let totalProducts = getTotalProducts();
   return (
     <div>
       <Badge
-        badgeContent={cart.length}
+        badgeContent={totalProducts}
         color="warning"
         max={50}
         showZero={true}
