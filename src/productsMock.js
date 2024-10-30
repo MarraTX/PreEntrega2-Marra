@@ -2,7 +2,7 @@ export const products = [
   {
     id: "1",
     title: "Fango",
-    price: "$" + 4000,
+    price: 4000,
     stock: 12,
     description: "Perfecto para tu cuerpo",
     category: "fangoterapia",
@@ -12,8 +12,8 @@ export const products = [
   {
     id: "2",
     title: "Bruma",
-    price: "$" + 3000,
-    stock: 12,
+    price: 3000,
+    stock: 9,
     description: "Genial para tu cara",
     category: "lifting",
     imageUrl:
@@ -22,8 +22,8 @@ export const products = [
   {
     id: "3",
     title: "Sales",
-    price: "$" + 2000,
-    stock: 12,
+    price: 2000,
+    stock: 10,
     description: "Perfecta para baños",
     category: "lifting",
     imageUrl:
@@ -32,8 +32,8 @@ export const products = [
   {
     id: "4",
     title: "Paquetes",
-    price: "$" + 7000,
-    stock: 12,
+    price: 7000,
+    stock: 20,
     description: "Que mejor que un paquete",
     category: "lifting",
     imageUrl:

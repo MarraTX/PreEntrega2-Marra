@@ -21,7 +21,7 @@ const ProductCard = ({ title, price, imageUrl, description, id }) => {
           {description}
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          {price}
+          ${price}
         </Typography>
       </CardContent>
       <CardActions>

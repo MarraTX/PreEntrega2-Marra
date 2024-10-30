@@ -3,12 +3,12 @@ import { Button } from "@mui/material";
 import "./Counter.css";
 import { Link } from "react-router-dom";
 
-const Counter = ({ contador, sumar, restar }) => {
+const Counter = ({ contador, sumar, restar, onAdd }) => {
   return (
     <div className="counter-container">
-      <h1>{contador}</h1>
+      <h2>{contador}</h2>
       <div className="button-group">
-        <Button variant="contained" onClick={restar}>
+        <Button variant="contained" onClick={restar} disabled={contador === 1}>
           Restar
         </Button>
         <Button variant="contained" onClick={sumar}>
@@ -16,7 +16,11 @@ const Counter = ({ contador, sumar, restar }) => {
         </Button>
       </div>
       <Link to={"/cart"}>
-        <Button variant="outlined" className="add-cart-button">
+        <Button
+          variant="outlined"
+          className="add-cart-button"
+          onClick={() => onAdd(contador)}
+        >
           Agregar al carrito
         </Button>
       </Link>

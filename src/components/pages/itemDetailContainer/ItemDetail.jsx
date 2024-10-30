@@ -2,7 +2,7 @@ import React from "react";
 import CounterContainer from "../../common/counter/CounterContainer";
 import "./ItemDetail.css";
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, onAdd }) => {
   return (
     <div className="item-detail-container">
       <div className="item-detail">
@@ -16,7 +16,7 @@ const ItemDetail = ({ item }) => {
         <p>{item.description}</p>
         <p>Precio: {item.price}</p>
         <p>Categoría: {item.category}</p>
-        <CounterContainer />
+        <CounterContainer onAdd={onAdd} stock={item.stock} />
       </div>
     </div>
   );
