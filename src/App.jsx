@@ -5,7 +5,7 @@ import ItemListContainer from "./components/pages/itemListContainer/ItemListCont
 import CartContainer from "./components/pages/cart/CartContainer";
 import { CartContextProvider } from "./context/CartContext";
 import Checkout from "./components/pages/checkout/Checkout";
-import Footer from "./components/layouts/footer/Footer"; // Importa el Footer
+import Footer from "./components/layouts/footer/Footer";
 
 function App() {
   return (

@@ -145,7 +145,12 @@ const Checkout = () => {
             onChange={handleChange}
             name="name"
             value={user.name}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: "white",
+              },
+            }}
             error={!!errors.name}
             helperText={errors.name}
           />
@@ -156,7 +161,12 @@ const Checkout = () => {
             onChange={handleChange}
             name="phone"
             value={user.phone}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: "white",
+              },
+            }}
             error={!!errors.phone}
             helperText={errors.phone}
           />
@@ -167,7 +177,12 @@ const Checkout = () => {
             onChange={handleChange}
             name="email"
             value={user.email}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: "white",
+              },
+            }}
             error={!!errors.email}
             helperText={errors.email}
           />
