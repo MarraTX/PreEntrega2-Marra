@@ -3,6 +3,14 @@ import { products } from "../../../productsMock";
 import { useParams } from "react-router-dom";
 import ItemList from "./itemList";
 import { Skeleton, Grid } from "@mui/material";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
+import { db } from "../../../config-firebase";
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -10,21 +18,18 @@ const ItemListContainer = () => {
   const { categoryName } = useParams();
 
   useEffect(() => {
-    const loadProducts = async () => {
-      let filteredProducts = products.filter(
-        (product) => product.category === categoryName
-      );
+    const itemsCollection = collection(db, "productos");
+    let consulta = itemsCollection;
 
-      if (categoryName === undefined) {
-        await new Promise((res) => setTimeout(res, 500));
-        setItems(products);
-      } else {
-        setItems(filteredProducts);
-      }
+    if (categoryName) {
+      consulta = query(itemsCollection, where("category", "==", categoryName));
+    }
+    getDocs(consulta).then((snapshot) => {
+      setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
       setLoading(false);
-    };
+    });
 
-    loadProducts();
+    console.log(items);
   }, [categoryName]);
 
   return (
