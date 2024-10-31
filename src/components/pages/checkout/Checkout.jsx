@@ -78,10 +78,9 @@ const Checkout = () => {
       .finally(() => {
         setLoading(false);
       });
-    order.items.forEach((item) => {
-      let collectionRef = doc(db, "productos");
-      updateDoc(doc(collectionRef, item.id), {
-        stock: item.stock - item.quantity,
+    order.items.forEach((elemento) => {
+      updateDoc(doc(db, "productos", elemento.id), {
+        stock: elemento.stock - elemento.quantity,
       });
     });
   };

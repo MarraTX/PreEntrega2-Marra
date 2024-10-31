@@ -1,45 +1,58 @@
 import React from "react";
 import CounterContainer from "../../common/counter/CounterContainer";
-import "./ItemDetail.css";
 import { Typography } from "@mui/material";
 
 const ItemDetail = ({ item, onAdd, totalItemsAgregados }) => {
   return (
-    <div className="item-detail-container">
-      <div className="item-detail">
-        <h1>{item.title}</h1>
+    <div className="flex justify-center items-center min-h-screen p-6 bg-gradient-to-b from-gray-100 to-gray-200">
+      <div className="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full transform transition duration-500 hover:scale-105">
+        <h1 className="text-3xl font-semibold text-gray-800 mb-4">
+          {item.title}
+        </h1>
 
         <img
           src={item.imageUrl}
           alt={item.title}
-          style={{
-            width: "250px",
-            height: "auto",
-            borderRadius: "10px",
-            border: "1px solid #424141",
-          }}
+          className="w-full h-64 object-cover rounded-lg border border-gray-300 shadow-md mb-6"
         />
-        <Typography variant="body2" fontSize={16} marginTop={2}>
+
+        <Typography
+          variant="body2"
+          fontSize={16}
+          className="text-gray-600 mb-4"
+        >
           {item.description}
         </Typography>
+
         <Typography
           variant="h5"
-          sx={{ color: "green", marginTop: 3, fontWeight: "bold" }}
+          sx={{ fontWeight: "bold" }}
+          className="text-black-600 text-2xl mt-4"
         >
-          Precio: {item.price}
+          ${item.price}
         </Typography>
+
         <Typography
           variant="h6"
-          sx={{ color: "text.secondary", marginTop: 3, fontWeight: "bold" }}
+          sx={{ fontWeight: "bold" }}
+          className="text-gray-500 mt-2"
         >
           Categoría: {item.category}
         </Typography>
-        {/* <p>Ya tienes {totalItemsAgregados} unidades en el carrito.</p> */}
-        <CounterContainer
-          onAdd={onAdd}
-          stock={item.stock}
-          totalItemsAgregados={totalItemsAgregados}
-        />
+
+        {/* {totalItemsAgregados > 0 && (
+          <div className="text-gray-800 text-xl font-semibold mt-4">
+            Tienes {totalItemsAgregados} en el carrito.
+          </div>
+        )} */}
+
+        <div className="mt-8">
+          <CounterContainer
+            onAdd={onAdd}
+            stock={item.stock}
+            totalItemsAgregados={totalItemsAgregados}
+          />
+        </div>
       </div>
     </div>
   );
