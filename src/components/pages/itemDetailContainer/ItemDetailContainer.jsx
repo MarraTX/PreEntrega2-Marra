@@ -37,9 +37,15 @@ const ItemDetailContainer = () => {
     Swal.fire({
       position: "top-end",
       icon: "success",
-      title: "Agregado al carrito!",
+      title: "Agregado con éxito!",
       showConfirmButton: false,
       timer: 1000,
+      width: "250px", // Ajusta el ancho
+      padding: "0.5em", // Ajusta el padding
+      customClass: {
+        title: "swal-title", // Clase para el título
+        popup: "swal-popup", // Clase para el popup
+      },
     });
   };
 
