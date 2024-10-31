@@ -4,7 +4,6 @@ export const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  console.log(cart);
   const addToCart = (product) => {
     // verificar si existe en el carrito
     let existe = cart.some((item) => item.id === product.id);
