@@ -8,7 +8,6 @@ const Users = () => {
     error,
     loading,
   } = useFetch("https://jsonplaceholder.org/users");
-  console.log(users);
   return <div>Users</div>;
 };
 

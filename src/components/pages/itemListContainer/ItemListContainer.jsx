@@ -28,8 +28,6 @@ const ItemListContainer = () => {
       setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
       setLoading(false);
     });
-
-    console.log(items);
   }, [categoryName]);
 
   return (
@@ -59,7 +57,3 @@ export default ItemListContainer;
 //   let pepe = "dsad"
 
 // }
-
-// console.log( pepe )
-
-// console.log( a )
