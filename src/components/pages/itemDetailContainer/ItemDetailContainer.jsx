@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { products } from "../../../productsMock";
 import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
 import Swal from "sweetalert2";
+import { collection, doc, getDoc } from "firebase/firestore";
+import { db } from "../../../config-firebase";
 
 const ItemDetailContainer = () => {
   // hook --> recuperar la parte dinamica de la ruta
@@ -14,13 +15,17 @@ const ItemDetailContainer = () => {
   // cargar las funciones del context;
   const { addToCart, getTotalQuantityByID } = useContext(CartContext);
   let totalItemsAgregados = getTotalQuantityByID(id);
-  useEffect(() => {
-    let product = products.find((product) => product.id === id);
-    if (product) {
-      setItem(product);
-    }
 
-    // navigate("/cart");
+  useEffect(() => {
+    let productCollection = collection(db, "productos");
+    let refDoc = doc(productCollection, id);
+    let getProduct = getDoc(refDoc);
+
+    getProduct
+      .then((res) => {
+        setItem({ id: res.id, ...res.data() });
+      })
+      .catch((err) => console.log(err));
   }, [id]);
 
   const onAdd = (quantity) => {
