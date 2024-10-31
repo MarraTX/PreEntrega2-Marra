@@ -3,8 +3,8 @@ import Navbar from "./components/layouts/navbar/Navbar";
 import ItemDetailContainer from "./components/pages/itemDetailContainer/itemDetailContainer";
 import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
 import CartContainer from "./components/pages/cart/CartContainer";
-import Eventos from "./components/pages/eventos/Eventos";
 import { CartContextProvider } from "./context/CartContext";
+import Checkout from "./components/pages/checkout/Checkout";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
               path="/productDetail/:id"
               element={<ItemDetailContainer />}
             ></Route>
+            <Route path="/checkout" element={<Checkout />}></Route>
             <Route
               path="*"
               element={

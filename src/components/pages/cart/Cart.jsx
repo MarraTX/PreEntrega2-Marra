@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { CartContext } from "../../../context/CartContext";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Cart = ({ cart, clearCart, deleteProductById, total }) => {
   // Función para limpiar el carrito
@@ -18,8 +19,8 @@ const Cart = ({ cart, clearCart, deleteProductById, total }) => {
       title: "¿Seguro quieres limpiar el carrito?",
       showDenyButton: true,
       showCancelButton: false,
-      confirmButtonText: "Limpiar",
       denyButtonText: `No limpiar`,
+      confirmButtonText: "Limpiar",
     }).then((result) => {
       if (result.isConfirmed) {
         clearCart();
@@ -35,8 +36,8 @@ const Cart = ({ cart, clearCart, deleteProductById, total }) => {
     Swal.fire({
       title: "¿Estás seguro de que quieres eliminar este producto?",
       showDenyButton: true,
-      confirmButtonText: "Eliminar",
       denyButtonText: "No eliminar",
+      confirmButtonText: "Eliminar",
     }).then((result) => {
       if (result.isConfirmed) {
         deleteProductById(productId);
@@ -103,6 +104,15 @@ const Cart = ({ cart, clearCart, deleteProductById, total }) => {
           >
             Limpiar carrito
           </Button>
+        )}
+      </Box>
+      <Box display="flex" justifyContent="center" sx={{ marginTop: "20px" }}>
+        {total > 0 && (
+          <Link to="/checkout">
+            <Button variant="contained" color="success">
+              Finalizar compra
+            </Button>
+          </Link>
         )}
       </Box>
 

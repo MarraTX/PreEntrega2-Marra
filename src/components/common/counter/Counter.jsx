@@ -14,7 +14,7 @@ const Counter = ({ contador, sumar, restar, onAdd, stock }) => {
           color="error"
           disabled={contador === 1}
         >
-          Restar
+          Quitar
         </Button>
         <Button
           variant="contained"
@@ -22,19 +22,17 @@ const Counter = ({ contador, sumar, restar, onAdd, stock }) => {
           color="warning"
           disabled={contador >= stock}
         >
-          Sumar
+          Añadir
         </Button>
       </div>
-      <Link to={"/cart"}>
-        <Button
-          variant="outlined"
-          color="success"
-          className="add-cart-button"
-          onClick={() => onAdd(contador)}
-        >
-          Agregar al carrito
-        </Button>
-      </Link>
+      <Button
+        variant="outlined"
+        color="success"
+        className="add-cart-button"
+        onClick={() => onAdd(contador)}
+      >
+        Agregar al carrito
+      </Button>
     </div>
   );
 };
